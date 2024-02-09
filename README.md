@@ -117,13 +117,12 @@ Follow these steps to set up and run the e-commerce back-end application on your
 
 The following image shows the application being tested on insomnia:
 
-![E-commerce app running on Insomnia".](sample.png)
+![E-commerce app running on Insomnia".](/Develop/sample.png)
 
 ## Video Demonstration
 [Link to Walkthrough Video](#) - https://www.loom.com/share/7c375f0ecc3443e6b9de2ac94750d51b?sid=746bcb88-5560-404a-a811-0307ff76b899
 
 ## GitHub project URL: https://github.com/maslla100/e-commerce
-
 
 
 
