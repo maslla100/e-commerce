@@ -1,238 +1,131 @@
-# e-commerce
-e-commerce
-Object-Relational Mapping (ORM) Challenge: E-commerce Back End
-Internet retail, also known as e-commerce, plays a significant role within the electronics industry, as it empowers businesses and consumers alike to conveniently engage in online buying and selling of electronic products. In the latest available data from 2021, the industry in the United States alone was estimated to have generated the substantial amount of US$2.54 trillion, according to the United Nations Conference on Trade and Development. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.
+## Project Name
 
-Your challenge is to build the back end for an e-commerce site. You’ll take a working Express.js API and configure it to use Sequelize to interact with a MySQL database.
+E-Commerce Back End
 
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
 
-Refer to the Video Submission GuideLinks to an external site. on the Full-Stack Blog for additional guidance on creating a video.
 
-IMPORTANT
-Make sure to clone the starter code repository and make your own repository with the starter code. Do not fork the starter code repository!
+## Version
 
-Before you start, clone the starter codeLinks to an external site..
+1.0.0 Deployment Date: 2024-02-08 Contributors: Luis Llamas
 
-User Story
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
-Acceptance Criteria
 
-Explain
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
-Mock-Up
-The following animations show examples of the application's API routes being tested in Insomnia Core.
 
-The first animation shows GET routes to return all categories, all products, and all tags being tested in Insomnia Core:
+## Description
 
-In Insomnia Core, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.
+This project serves as the back-end for an e-commerce website, designed to manage the complexities of online retail operations through a robust API. Built with Express.js and leveraging Sequelize as an ORM (Object-Relational Mapping) tool, it facilitates seamless interactions with a MySQL database, enabling efficient CRUD (Create, Read, Update, Delete) operations on essential entities such as products, categories, and tags.
 
-The second animation shows GET routes to return a single category, a single product, and a single tag being tested in Insomnia Core:
+The use of ORM techniques not only simplifies database transactions but also enhances development efficiency by abstracting SQL queries into JavaScript, allowing for a more intuitive and productive development process. This architecture makes it an ideal solution for developers looking to construct or expand e-commerce platforms with a scalable, maintainable, and secure back-end system.
 
-In Insomnia Core, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”
 
-The final animation shows the POST, PUT, and DELETE routes for categories being tested in Insomnia Core:
 
-In Insomnia Core, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”
+## Technologies Used
 
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia Core.
+- **Node.js**: An open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser. Node.js allows developers to use JavaScript to write command-line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser.
 
-Getting Started
-You’ll need to use the MySQL2Links to an external site. and SequelizeLinks to an external site. packages to connect your Express.js API to a MySQL database and the dotenv packageLinks to an external site. to use environment variables to store sensitive data, like your MySQL username, password, and database name.
+- **Express.js**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It facilitates the rapid development of Node-based web applications and is known for its performance and minimalist structure.
 
-Use the schema.sql file in the db folder to create your database using MySQL shell commands. Use environment variables to store sensitive data, like your MySQL username, password, and database name.
+- **MySQL**: A popular open-source relational database management system. It uses structured query language (SQL) for managing and manipulating relational databases. MySQL is known for its reliability, scalability, and flexibility in storing structured data efficiently.
 
-Database Models
-Your database should contain the following four models, including the requirements listed for each model:
+- **Sequelize ORM**: Sequelize is a promise-based Node.js ORM (Object-Relational Mapping) for Postgres, MySQL, MariaDB, SQLite, and Microsoft SQL Server. It features solid transaction support, relations, eager and lazy loading, read replication, and more. Sequelize abstracts database access and enables developers to interact with various databases using JavaScript objects and syntax rather than SQL queries.
 
-Category
+- **dotenv**: A zero-dependency module that loads environment variables from a `.env` file into `process.env`. This enables the application to configure different environments easily, keeping sensitive credentials like database passwords secure and out of the version control system.
 
-id
 
-Integer
 
-Doesn't allow null values
+## Installation Steps
 
-Set as primary key
+Follow these steps to set up and run the e-commerce back-end application on your local machine:
 
-Uses auto increment
+1. **Clone the Repository**: First, clone the repository to your local machine. You can do this by running:
 
-category_name
 
-String
+   git clone https://github.com/maslla100/e-commerce.git
 
-Doesn't allow null values
 
-Product
+   Replace `https://github.com/maslla100/e-commerce.git` with the actual URL of your repository if different.
 
-id
+2. **Navigate to the Project Directory**:
 
-Integer
+   Change into the project directory:
 
-Doesn't allow null values
 
-Set as primary key
+   cd e-commerce
 
-Uses auto increment
 
-product_name
+3. **Install Dependencies**: Install all necessary dependencies by running:
 
-String
 
-Doesn't allow null values
+   npm install
+   
 
-price
+   This command installs Express, Sequelize, MySQL2, dotenv, and any other dependencies listed in your `package.json` file.
 
-Decimal
+4. **Set Up MySQL Database**:
 
-Doesn't allow null values
+   - Open the MySQL shell:
 
-Validates that the value is a decimal
 
-stock
+     mysql -u root -p
+     
 
-Integer
+     Enter your MySQL root password when prompted.
 
-Doesn't allow null values
+   - Create the database:
 
-Set a default value of 10
+     sql
+     CREATE DATABASE ecommerce_db;
+     
 
-Validates that the value is numeric
+     Exit the MySQL shell:
 
-category_id
+     sql
+     exit;
+     
 
-Integer
+5. **Seed the Database**:
 
-References the category model's id
+   Populate your database with the provided seed data:
 
-Tag
 
-id
+   npm run seed
+   
 
-Integer
+6. **Configure Environment Variables**:
 
-Doesn't allow null values
+   Create a `.env` file in the root directory of the project to store your MySQL credentials. Add the following lines, replacing the placeholders with your actual data:
 
-Set as primary key
+   env
+   DB_NAME=ecommerce_db
+   DB_USER=your_mysql_username
+   DB_PASS=your_mysql_password
+   DB_HOST=localhost
+   
 
-Uses auto increment
+   Note: The `DB_NAME` should match the name of the database you created (`ecommerce_db`).
 
-tag_name
+7. **Run the Application**:
 
-String
+   Start the application by running:
 
-ProductTag
 
-id
+   npm start
+   
 
-Integer
+   The application will now be running and listening for requests. You can test the API endpoints using a tool like Postman or Insomnia.
 
-Doesn't allow null values
 
-Set as primary key
 
-Uses auto increment
+The following image shows the application being tested on insomnia:
 
-product_id
+![E-commerce app running on Insomnia".](sample.png)
 
-Integer
+## Video Demonstration
+[Link to Walkthrough Video](#) - https://www.loom.com/share/7c375f0ecc3443e6b9de2ac94750d51b?sid=746bcb88-5560-404a-a811-0307ff76b899
 
-References the product model's id
+## GitHub project URL: https://github.com/maslla100/e-commerce
 
-tag_id
 
-Integer
 
-References the tag model's id
 
-Associations
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-Product belongs to Category, as a category can have multiple products but a product can only belong to one category.
-
-Category has many Product models.
-
-Product belongs to many Tag models. Using the ProductTag through model, allow products to have multiple tags and tags to have many products.
-
-Tag belongs to many Product models.
-
-HINT
-Fill Out the API Routes to Perform RESTful CRUD Operations
-Fill out the unfinished routes in product-routes.js, tag-routes.js, and category-routes.js to perform create, read, update, and delete operations using your Sequelize models.
-
-HINT
-Seed the Database
-After creating the models and routes, run npm run seed to seed data to your database so that you can test your routes.
-
-Sync Sequelize to the Database on Server Start
-Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start.
-
-Grading Requirements
-NOTE
-If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
-
-A repository that has no code
-
-A repository that includes a unique name but nothing else
-
-A repository that includes only a README file but nothing else
-
-A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-Deliverables: 10%
-Your GitHub repository containing your application code.
-Walkthrough Video: 37%
-A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your README file.
-
-The walkthrough video must show all of the technical acceptance criteria being met.
-
-The walkthrough video must demonstrate how to create the schema from the MySQL shell.
-
-The walkthrough video must demonstrate how to seed the database from the command line.
-
-The walkthrough video must demonstrate how to start the application’s server.
-
-The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia Core.
-
-The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia Core.
-
-The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia Core.
-
-Technical Acceptance Criteria: 40%
-Satisfies all of the preceding acceptance criteria plus the following:
-
-Uses the MySQL2Links to an external site. and SequelizeLinks to an external site. packages to connect to a MySQL database.
-
-Uses the dotenv packageLinks to an external site. to use environment variables to store sensitive data, like a user’s MySQL username, password, and database name.
-
-Syncs Sequelize models to a MySQL database on the server start.
-
-Includes column definitions for all four models outlined in the Challenge instructions.
-
-Includes model associations outlined in the Challenge instructions.
-
-Repository Quality: 13%
-Repository has a unique name.
-
-Repository follows best practices for file structure and naming conventions.
-
-Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-Repository contains multiple descriptive commit messages.
-
-Repository contains a high-quality README with description and a link to a walkthrough video.
 
